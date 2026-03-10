@@ -1,2 +1,2 @@
-Time : 53.851
+Time : 80.6282
 Burstiness : 0

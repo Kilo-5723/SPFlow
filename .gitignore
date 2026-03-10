@@ -1,0 +1,15 @@
+app/*
+dataset/*
+result/*
+log/*
+test/*
+*.txt
+nohup.out
+/cmd
+*.eps
+*.dat
+*.gra
+*.out
+case-study/result/*
+case-study/vera/*
+solution/bits/stdc++.h

@@ -38,21 +38,21 @@ struct spflow {
       return uu;
     };
     vtx_t uu = nnode(u), vv = nnode(v);
-    G.adde(uu, vv, w);
     last[u] = {uu, t}, last[v] = {vv, t};
+    G.adde(uu, vv, w);
   }
   vector<pair<tick_t, vtx_t>> subarr(vector<pair<tick_t, vtx_t>> a, tick_t ts,
                                      tick_t te) {
     auto itl = lower_bound(a.begin(), a.end(), make_pair(ts, 0));
-    auto itr = lower_bound(a.begin(), a.end(), make_pair(te, 0));
+    auto itr = lower_bound(a.begin(), a.end(), make_pair(te + 1, 0));
     return {itl, itr};
   }
   map<pair<tick_t, tick_t>, flow_t> query(tick_t ts, tick_t te) {
     cout << ts << ' ' << te << endl;
     vector<pair<tick_t, vtx_t>> S = subarr(sS, ts, te), T = subarr(sT, ts, te);
-    for (auto s : S) cout << s.second << ' ';
+    for (auto s : S) cout << s.first << ' ';
     cout << " ; ";
-    for (auto t : T) cout << t.second << ' ';
+    for (auto t : T) cout << t.first << ' ';
     cout << endl;
     int n = S.size(), m = T.size();
     reverse(S.begin(), S.end());

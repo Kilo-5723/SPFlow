@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
         for (auto [pr, f] : mp) {
           auto [ts, te] = pr;
           maxb = max(maxb, f / (te - ts + 1.0));
-          cout << f << endl;
+          cout << pr.first << ' ' << pr.second << ' ' << f << endl;
         }
       }
   }

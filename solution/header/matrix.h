@@ -16,17 +16,18 @@ struct matrix {
     return nullopt;
   }
   void add(int s, int t, flow_t f) {
-    if (!S.count(s)) S.insert(s);
-    if (!T.count(t)) T.insert(t);
+    S.insert(s);
+    T.insert(t);
     mtx[{s, t}] = f;
   }
-  map<pair<tick_t, tick_t>, flow_t> query(int s, int t) {
-    vector<int> ss, tt;
+  map<pair<tick_t, tick_t>, flow_t> query(tick_t s, tick_t t) {
+    vector<vtx_t> ss, tt;
     for (auto i = S.lower_bound(s); i != S.end() && *i <= t; i++)
       ss.push_back(*i);
     for (auto j = T.lower_bound(t); j != T.end() && *j <= t; j++)
       tt.push_back(*j);
     int n = ss.size(), m = tt.size();
+    cout<<n<<' '<<m<<endl;
     vector a(n, vector<flow_t>(m));
     for (int i = 0; i < n; i++)
       for (int j = 0; j < m; j++)
